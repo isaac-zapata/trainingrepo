@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: "This template creates a central PUBLIC routes"
+
+Parameters:
+  InternetGatewayID:
+    Description: Internet gateway id in central account
+    Type: String
+  RouteTableIdA:
+    Description: Route Table ID for A
+    Type: String
+  RouteTableIdB:
+    Description: Route Table ID for B
+    Type: String
+  RouteTableIdC:
+    Description: Route Table ID for C
+    Type: String
+  RouteTableIdD:
+    Description: Route Table ID for D
+    Type: String
+
+Resources:
+  CNRoutePublicA:
+    Type: AWS::EC2::Route
+    Properties:
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGatewayID
+      RouteTableId: !Ref RouteTableIdA
+  CNRoutePublicB:
+    Type: AWS::EC2::Route
+    Properties:
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGatewayID
+      RouteTableId: !Ref RouteTableIdB
+  CNRoutePublicC:
+    Type: AWS::EC2::Route
+    Properties:
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGatewayID
+      RouteTableId: !Ref RouteTableIdC
+  CNRoutePublicD:
+    Type: AWS::EC2::Route
+    Properties:
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGatewayID
+      RouteTableId: !Ref RouteTableIdD
